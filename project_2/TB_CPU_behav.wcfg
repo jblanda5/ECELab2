@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_CPU_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_CPU" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="15.114 ns"></ZoomEndTime>
+      <Cursor1Time time="15.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <ValueColumnWidth column_width="76"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="9" />
+   <wvobject fp_name="/TB_CPU/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/PC" type="array">
+      <obj_property name="ElementShortName">PC[0:31]</obj_property>
+      <obj_property name="ObjectShortName">PC[0:31]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/TBCPU/IFID_Instruction" type="array">
+      <obj_property name="ElementShortName">IFID_Instruction[0:31]</obj_property>
+      <obj_property name="ObjectShortName">IFID_Instruction[0:31]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[1]" type="array">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/TBCPU/IDEX_Reg_Read_Data_1" type="array">
+      <obj_property name="ElementShortName">IDEX_Reg_Read_Data_1[0:63]</obj_property>
+      <obj_property name="ObjectShortName">IDEX_Reg_Read_Data_1[0:63]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/TBCPU/Sign_Extend/Instruction_Sign_Extend" type="array">
+      <obj_property name="ElementShortName">Instruction_Sign_Extend[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction_Sign_Extend[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/TBCPU/Sign_Extend/Instruction" type="array">
+      <obj_property name="ElementShortName">Instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_CPU/TBCPU/ALU_Result" type="array">
+      <obj_property name="ElementShortName">ALU_Result[0:63]</obj_property>
+      <obj_property name="ObjectShortName">ALU_Result[0:63]</obj_property>
+   </wvobject>
+</wave_config>

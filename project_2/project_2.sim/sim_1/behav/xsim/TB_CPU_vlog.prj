@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sources_1/imports/Project2.sources/sources_1/new/ALU.v" \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sources_1/new/ALU_Ctrl.v" \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sources_1/new/CPU.v" \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sources_1/new/Registers.v" \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sources_1/new/Sign_Extend.v" \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sources_1/new/control.v" \
+"../../../../project_2.srcs/sources_1/imports/Project2.srcs/sim_1/new/TB_CPU.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
