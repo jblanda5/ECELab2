@@ -20,13 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module CPU(
-output wire [0:31]write_addr, //Data Memory Address 
-output wire [0:31]write_data, //Data Memory Write Data
-input wire [0:31]read_data, //Data Memory Read Data
+output wire [31:0]mem_addr, //Data Memory Address 
+output wire [31:0]write_data, //Data Memory Write Data
+input wire [31:0]read_data, //Data Memory Read Data
 output wire mem_write,
 output wire mem_read,
-output reg [0:31]PC, //Instruction Memory Instruction Address
-input wire [0:31]instr_data, //Instruction Memory Instruction Data
+output reg [31:0]PC, //Instruction Memory Instruction Address
+input wire [31:0]instr_data, //Instruction Memory Instruction Data
 input wire clk, //Clock Signal
 input wire reset //Reset wire
 );
@@ -36,17 +36,17 @@ input wire reset //Reset wire
 //
 ///////////////////////////////////////////
 //Instruction Fetch/Decode Stage Registers
-reg [0:31]IFID_Instruction;
-reg [0:31]IFID_Instruction_Addr;
+reg [31:0]IFID_Instruction;
+reg [31:0]IFID_Instruction_Addr;
 
 //Instruction Decode/Execute Stage Registers
-reg [0:10]IDEX_ALU_Opcode;
-reg [0:4]IDEX_Write_Reg;
-reg [0:31]IDEX_Instruction_Addr;
-reg [0:63]IDEX_Instruction_Sign_Ex;
-reg [0:63]IDEX_Reg_Read_Data_1;
-reg [0:63]IDEX_Reg_Read_Data_2;
-reg [0:1]IDEX_ALU_Op;
+reg [10:0]IDEX_ALU_Opcode;
+reg [4:0]IDEX_Write_Reg;
+reg [31:0]IDEX_Instruction_Addr;
+reg [63:0]IDEX_Instruction_Sign_Ex;
+reg [63:0]IDEX_Reg_Read_Data_1;
+reg [63:0]IDEX_Reg_Read_Data_2;
+reg [1:0]IDEX_ALU_Op;
 reg IDEX_ALUSrc;
 reg IDEX_Branch;
 reg IDEX_MemRead;
@@ -55,25 +55,23 @@ reg IDEX_RegWrite;
 reg IDEX_MemtoReg;
 
 //Execute/Memory Stage Registers
-reg [0:31]EXMEM_Add_Result;
-reg [0:63]EXMEM_ALU_Result;
-reg [0:63]EXMEM_Reg_Read_Data_2;
+reg [31:0]EXMEM_Add_Result;
+reg [63:0]EXMEM_Reg_Read_Data_2;
 reg [4:0]EXMEM_Write_Reg;
 reg EXMEM_Branch;
 reg EXMEM_MemRead;
 reg EXMEM_MemWrite;
 reg EXMEM_RegWrite;
 reg EXMEM_MemtoReg;
-reg EXMEM_Zero;
 wire PCSrc;
-assign write_addr = EXMEM_ALU_Result;
+assign mem_addr = ALU_Result;
 assign write_data = EXMEM_Reg_Read_Data_2;
 assign mem_read = EXMEM_MemRead;
 assign mem_write = EXMEM_MemWrite;
-assign PCSrc = EXMEM_Zero & EXMEM_Branch;
+assign PCSrc = zero & EXMEM_Branch;
 
 //Memory/Write Back Stage Registers
-reg MEMWB_Read_Data;
+reg [31:0]MEMWB_Read_Data;
 reg MEMWB_RegWrite;
 reg MEMWB_MemtoReg;
 reg [4:0]MEMWB_Write_Reg;
@@ -86,20 +84,20 @@ reg [63:0]MEMWB_ALU_Result;
 ///////////////////////////////////////////
 
 //Add Sign Extend Module
-wire [0:63]Instruction_Sign_Ex;
+wire [63:0]Instruction_Sign_Ex;
 Sign_Extend Sign_Extend(
 .Instruction(IFID_Instruction),
 .Instruction_Sign_Extend(Instruction_Sign_Ex)
 );
 //Add Instruction Control Module
-wire [0:1]ALUOp;
+wire [1:0]ALUOp;
 wire ALUSrc;
 wire MemRead;
 wire MemWrite;
 wire RegWrite;
 wire MemtoReg;
 control control(
-.Opcode(IFID_Instruction[21:31]),
+.Opcode(IFID_Instruction[31:21]),
 .ALUOp(ALUOp),
 .ALUSrc(ALUSrc),
 .Branch(Branch),
@@ -109,18 +107,18 @@ control control(
 .MemtoReg(MemtoReg)
 );
 //Add ALU Control Module
-wire [0:3]ALU_Control;
+wire [3:0]ALU_Control;
 ALU_Ctrl ALU_Ctrl(
 .Opcode_Field(IDEX_ALU_Opcode),
 .ALU_OP(IDEX_ALU_Op),
 .ALU_Control(ALU_Control)
 );
 //ALU MUX
-wire [0:63]ALU_In_2;
-wire [0:63]ALU_Result;
+wire [63:0]ALU_In_2;
+wire [63:0]ALU_Result;
 wire zero;
 wire [63:0]read_data_2;
-assign ALU_In_2 = ALUSrc ? IDEX_Instruction_Sign_Ex : read_data_2;
+assign ALU_In_2 = IDEX_ALUSrc ? IDEX_Instruction_Sign_Ex : IDEX_Reg_Read_Data_2;
 //Add ALU Module
 ALU ALU(
 .a(IDEX_Reg_Read_Data_1),
@@ -135,12 +133,12 @@ ALU ALU(
 wire [63:0]read_data_1;
 wire [4:0]RegIn2;
 wire [63:0]reg_write_data;
-assign RegIn2 = IFID_Instruction[28] ? IFID_Instruction[16:20] : IFID_Instruction[0:4]; // Rm : Rd
+assign RegIn2 = IFID_Instruction[28] ? IFID_Instruction[20:16] : IFID_Instruction[4:0]; // Rm : Rd
 assign reg_write_data = MEMWB_MemtoReg ? MEMWB_Read_Data : MEMWB_ALU_Result;
 Registers Registers(
 .RegWriteControl(MEMWB_RegWrite),
 .RegWriteData(reg_write_data),
-.RegIn1(IFID_Instruction[5:9]),
+.RegIn1(IFID_Instruction[9:5]),
 .RegIn2(RegIn2),
 .RegWriteNum(MEMWB_Write_Reg),
 .RegReadData1(read_data_1),
@@ -177,13 +175,11 @@ always @(posedge reset) begin
 
     //Execute/Memory Stage Registers
     EXMEM_Add_Result <= 0;
-    EXMEM_ALU_Result <= 0;
     EXMEM_Reg_Read_Data_2 <= 0;
     EXMEM_Branch <= 0;
     EXMEM_MemRead <= 0;
     EXMEM_RegWrite <= 0;
     EXMEM_MemtoReg <= 0;
-    EXMEM_Zero <= 0;
     EXMEM_Write_Reg <= 0;
 
     //Memory/Write Back Stage Registers
@@ -201,8 +197,8 @@ always @(posedge clk) begin
     
     //Instruction Decode Portion
     IDEX_Instruction_Sign_Ex <= Instruction_Sign_Ex; //Set IDEX Instruction Sign Extended register
-    IDEX_ALU_Opcode <= IFID_Instruction[21:31]; //Extract ALU Opcode from Instruction
-    IDEX_Write_Reg <= IFID_Instruction[0:4]; //Extract Register Write from Instruction
+    IDEX_ALU_Opcode <= IFID_Instruction[31:21]; //Extract ALU Opcode from Instruction
+    IDEX_Write_Reg <= IFID_Instruction[4:0]; //Extract Register Write from Instruction
     IDEX_Instruction_Addr <= IFID_Instruction_Addr; //Pipeline Instruction Address
     IDEX_ALU_Op <= ALUOp;
     IDEX_ALUSrc <= ALUSrc;
@@ -221,9 +217,7 @@ always @(posedge clk) begin
     EXMEM_MemWrite <= IDEX_MemWrite;
     EXMEM_RegWrite <= IDEX_RegWrite;
     EXMEM_MemtoReg <= IDEX_MemtoReg;
-    EXMEM_Zero <= zero;
-    EXMEM_ALU_Result <= ALU_Result;
-    EXMEM_Reg_Read_Data_2 <= read_data_2;
+    EXMEM_Reg_Read_Data_2 <= IDEX_Reg_Read_Data_2;
     EXMEM_Write_Reg <= IDEX_Write_Reg;
     
     //Memory Access Portion
@@ -231,7 +225,7 @@ always @(posedge clk) begin
     MEMWB_RegWrite <= EXMEM_RegWrite;
     MEMWB_MemtoReg <= EXMEM_MemtoReg;
     MEMWB_Write_Reg <= EXMEM_Write_Reg;
-    MEMWB_ALU_Result <= EXMEM_ALU_Result;
+    MEMWB_ALU_Result <= ALU_Result;
     
     //Write Back Portion
 end

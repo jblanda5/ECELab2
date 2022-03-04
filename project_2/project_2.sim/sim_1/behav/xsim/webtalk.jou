@@ -2,8 +2,8 @@
 # Webtalk v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Fri Feb 25 16:42:49 2022
-# Process ID: 13532
+# Start of session at: Fri Mar  4 12:57:05 2022
+# Process ID: 18916
 # Current directory: C:/Users/jblan/Documents/GitHub/ECELab2/project_2/project_2.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source C:/Users/jblan/Documents/GitHub/ECELab2/project_2/project_2.sim/sim_1/behav/xsim/xsim.dir/TB_CPU_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/jblan/Documents/GitHub/ECELab2/project_2/project_2.sim/sim_1/behav/xsim/webtalk.log

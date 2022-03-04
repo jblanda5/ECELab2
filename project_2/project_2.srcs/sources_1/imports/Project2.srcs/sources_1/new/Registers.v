@@ -43,30 +43,30 @@ input wire [31:0]RegWriteData,
 input wire [4:0]RegIn1,
 input wire [4:0]RegIn2,
 input wire [4:0]RegWriteNum,
-output wire [31:0]RegReadData1,
-output wire [31:0]RegReadData2,
+output wire [63:0]RegReadData1,
+output wire [63:0]RegReadData2,
 input wire CLK,
 input wire reset
 );
-reg[31:0] registers[31:0];
+reg[63:0] registers[31:0];
 always @(posedge reset) begin
-registers[0] = 'h0000;
-registers[1] = 'h0000;
-registers[2] = 'h0000;
-registers[3] = 'h0000;
-registers[4] = 'h0000;
-registers[5] = 'h0000;
-registers[6] = 'h0000;
-registers[7] = 'h0000;
-registers[8] = 'h0000;
-registers[9] = 'h0000;
-registers[10] = 'h0000;
-registers[11] = 'h0000;
-registers[12] = 'h0000;
-registers[13] = 'h0000;
-registers[14] = 'h0000;
-registers[15] = 'h0000;
-registers[16] = 'h0000;
+registers[0] = 'h000000000000F0F0;
+registers[1] = 'h0000000000000000;
+registers[2] = 'h00000000000D1A2B;
+registers[3] = 'h0000000000000000;
+registers[4] = 'h0000000000000000;
+registers[5] = 'h0000000000000000;
+registers[6] = 'h000000000cba9876;
+registers[7] = 'h00000000FFFFFF00;
+registers[8] = 'h000000000000000F;
+registers[9] = 'h0000000000000000;
+registers[10] = 'h0000000000000000;
+registers[11] = 'h0000000000000000;
+registers[12] = 'h0000000000000000;
+registers[13] = 'h0000000000000000;
+registers[14] = 'h0000000000000000;
+registers[15] = 'h0000000000000000;
+registers[16] = 'h0000000000000000;
 //etc...
 end
 //Read Register Section (Async)

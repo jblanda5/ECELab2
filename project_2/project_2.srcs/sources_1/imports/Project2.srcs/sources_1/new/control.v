@@ -77,7 +77,7 @@ always @(*) begin
             Branch <= 1'b0;
             ALUOp <= 2'b00;
         end
-        11'b000000000010: begin //STUR
+        11'b00010000010: begin //STUR
             ALUSrc <= 1'b1;
             MemtoReg <= 1'b0;
             RegWrite <= 1'b0;
@@ -86,7 +86,7 @@ always @(*) begin
             Branch <= 1'b0;
             ALUOp <= 2'b00;
         end
-        11'b00000000011: begin //CBZ
+        11'b00010000011: begin //CBZ
             ALUSrc <= 1'b0;
             MemtoReg <= 1'b0;
             RegWrite <= 1'b0;
