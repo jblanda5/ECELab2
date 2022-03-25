@@ -47,6 +47,9 @@ reg [63:0]IDEX_Instruction_Sign_Ex;
 reg [63:0]IDEX_Reg_Read_Data_1;
 reg [63:0]IDEX_Reg_Read_Data_2;
 reg [1:0]IDEX_ALU_Op;
+reg [4:0]IDEX_Rd;
+reg [4:0]IDEX_Rn;
+reg [4:0]IDEX_Rm;
 reg IDEX_ALUSrc;
 reg IDEX_Branch;
 reg IDEX_MemRead;
@@ -58,6 +61,9 @@ reg IDEX_MemtoReg;
 reg [31:0]EXMEM_Add_Result;
 reg [63:0]EXMEM_Reg_Read_Data_2;
 reg [4:0]EXMEM_Write_Reg;
+reg [4:0]EXMEM_Rd;
+reg [4:0]EXMEM_Rn;
+reg [4:0]EXMEM_Rm;
 reg EXMEM_Branch;
 reg EXMEM_MemRead;
 reg EXMEM_MemWrite;
@@ -76,6 +82,9 @@ reg MEMWB_RegWrite;
 reg MEMWB_MemtoReg;
 reg [4:0]MEMWB_Write_Reg;
 reg [63:0]MEMWB_ALU_Result;
+reg [4:0]MEMWB_Rd;
+reg [4:0]MEMWB_Rn;
+reg [4:0]MEMWB_Rm;
 
 ///////////////////////////////////////////
 //
@@ -113,15 +122,35 @@ ALU_Ctrl ALU_Ctrl(
 .ALU_OP(IDEX_ALU_Op),
 .ALU_Control(ALU_Control)
 );
+//Hazard detection module
+wire [1:0]forward_a;
+wire [1:0]forward_b;
+hazard_detection HazardDetection(
+.IDEX_Rd(IDEX_Rd),
+.IDEX_Rn(IDEX_Rn),
+.IDEX_Rm(IDEX_Rm),
+.EXMEM_Rd(EXMEM_Rd),
+.EXMEM_Rn(EXMEM_Rn),
+.EXMEM_Rm(EXMEM_Rm),
+.MEMWB_Rd(MEMWB_Rd),
+.MEMWB_Rn(MEMWB_Rn),
+.MEMWB_Rm(MEMWB_Rm),
+.forward_a(forward_a),
+.forward_b(forward_b)
+);
 //ALU MUX
+wire [63:0]ALU_In_1;
+assign ALU_In_1 = forward_a[1] ? MEMWB_ALU_Result : (forward_a[0] ? ALU_Result : IDEX_Reg_Read_Data_1);
+wire [63:0]ALU_In_2_inter; //intermediate wire
 wire [63:0]ALU_In_2;
 wire [63:0]ALU_Result;
 wire zero;
 wire [63:0]read_data_2;
-assign ALU_In_2 = IDEX_ALUSrc ? IDEX_Instruction_Sign_Ex : IDEX_Reg_Read_Data_2;
+assign ALU_In_2_inter = forward_b[1] ? MEMWB_ALU_Result : (forward_b[0] ? ALU_Result : IDEX_Reg_Read_Data_2);
+assign ALU_In_2 = IDEX_ALUSrc ? IDEX_Instruction_Sign_Ex : ALU_In_2_inter;
 //Add ALU Module
 ALU ALU(
-.a(IDEX_Reg_Read_Data_1),
+.a(ALU_In_1),
 .b(ALU_In_2),
 .ALUresult(ALU_Result),
 .zero(zero),
@@ -133,7 +162,7 @@ ALU ALU(
 wire [63:0]read_data_1;
 wire [4:0]RegIn2;
 wire [63:0]reg_write_data;
-assign RegIn2 = IFID_Instruction[28] ? IFID_Instruction[20:16] : IFID_Instruction[4:0]; // Rm : Rd
+assign RegIn2 = IFID_Instruction[28] ? IFID_Instruction[4:0] : IFID_Instruction[20:16]; // Rd : Rm
 assign reg_write_data = MEMWB_MemtoReg ? MEMWB_Read_Data : MEMWB_ALU_Result;
 Registers Registers(
 .RegWriteControl(MEMWB_RegWrite),
@@ -157,7 +186,7 @@ always @(posedge reset) begin
     PC <= 0;
     
     //Instruction Fetch/Decode Stage Registers
-    IFID_Instruction <= 0;
+    IFID_Instruction <= instr_data;
     IFID_Instruction_Addr <= 0;
 
     //Instruction Decode/Execute Stage Registers
@@ -172,6 +201,9 @@ always @(posedge reset) begin
     IDEX_RegWrite <= 0;
     IDEX_MemtoReg <= 0;
     IDEX_Write_Reg <= 0;
+    IDEX_Rd <= -1;
+    IDEX_Rn <= -1;
+    IDEX_Rm <= -1;
 
     //Execute/Memory Stage Registers
     EXMEM_Add_Result <= 0;
@@ -181,12 +213,18 @@ always @(posedge reset) begin
     EXMEM_RegWrite <= 0;
     EXMEM_MemtoReg <= 0;
     EXMEM_Write_Reg <= 0;
+    EXMEM_Rd <= -1;
+    EXMEM_Rn <= -1;
+    EXMEM_Rm <= -1;
 
     //Memory/Write Back Stage Registers
     MEMWB_Read_Data <= 0;
     MEMWB_RegWrite <= 0;
     MEMWB_MemtoReg <= 0;
     MEMWB_Write_Reg <= 0;
+    MEMWB_Rd <= -1;
+    MEMWB_Rn <= -1;
+    MEMWB_Rm <= -1;
 end
 
 always @(posedge clk) begin
@@ -209,6 +247,9 @@ always @(posedge clk) begin
     IDEX_MemtoReg <= MemtoReg;
     IDEX_Reg_Read_Data_1 <= read_data_1;
     IDEX_Reg_Read_Data_2 <= read_data_2;
+    IDEX_Rd <= IFID_Instruction[4:0];
+    IDEX_Rn <= IFID_Instruction[9:5];
+    IDEX_Rm <= IFID_Instruction[20:16];
     
     //Instruction Execute Portion
     EXMEM_Add_Result <= IDEX_Instruction_Addr + (IDEX_Instruction_Sign_Ex << 2);
@@ -219,6 +260,9 @@ always @(posedge clk) begin
     EXMEM_MemtoReg <= IDEX_MemtoReg;
     EXMEM_Reg_Read_Data_2 <= IDEX_Reg_Read_Data_2;
     EXMEM_Write_Reg <= IDEX_Write_Reg;
+    EXMEM_Rd <= IDEX_Rd;
+    EXMEM_Rn <= IDEX_Rn;
+    EXMEM_Rm <= IDEX_Rm;
     
     //Memory Access Portion
     MEMWB_Read_Data <= read_data;
@@ -226,6 +270,9 @@ always @(posedge clk) begin
     MEMWB_MemtoReg <= EXMEM_MemtoReg;
     MEMWB_Write_Reg <= EXMEM_Write_Reg;
     MEMWB_ALU_Result <= ALU_Result;
+    MEMWB_Rd <= EXMEM_Rd;
+    MEMWB_Rn <= EXMEM_Rn;
+    MEMWB_Rm <= EXMEM_Rm;
     
     //Write Back Portion
 end

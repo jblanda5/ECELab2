@@ -12,37 +12,17 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="27.175 ns"></ZoomEndTime>
-      <Cursor1Time time="22.000 ns"></Cursor1Time>
+      <ZoomEndTime time="15.001 ns"></ZoomEndTime>
+      <Cursor1Time time="5.014 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="275"></NameColumnWidth>
-      <ValueColumnWidth column_width="141"></ValueColumnWidth>
+      <ValueColumnWidth column_width="129"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
-   <wvobject fp_name="/TB_CPU/TBCPU/PC" type="array">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
+   <WVObjectSize size="15" />
    <wvobject fp_name="/TB_CPU/TBCPU/IFID_Instruction" type="array">
       <obj_property name="ElementShortName">IFID_Instruction[31:0]</obj_property>
       <obj_property name="ObjectShortName">IFID_Instruction[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/IDEX_Reg_Read_Data_1" type="array">
-      <obj_property name="ElementShortName">IDEX_Reg_Read_Data_1[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_Reg_Read_Data_1[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/IDEX_Reg_Read_Data_2" type="array">
-      <obj_property name="ElementShortName">IDEX_Reg_Read_Data_2[63:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_Reg_Read_Data_2[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/IDEX_ALUSrc" type="logic">
-      <obj_property name="ElementShortName">IDEX_ALUSrc</obj_property>
-      <obj_property name="ObjectShortName">IDEX_ALUSrc</obj_property>
    </wvobject>
    <wvobject fp_name="/TB_CPU/TBCPU/ALU/a" type="array">
       <obj_property name="ElementShortName">a[63:0]</obj_property>
@@ -52,64 +32,52 @@
       <obj_property name="ElementShortName">b[63:0]</obj_property>
       <obj_property name="ObjectShortName">b[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/ALU_Result" type="array">
-      <obj_property name="ElementShortName">ALU_Result[63:0]</obj_property>
-      <obj_property name="ObjectShortName">ALU_Result[63:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/ALU/ALUresult" type="array">
+      <obj_property name="ElementShortName">ALUresult[63:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUresult[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/EXMEM_Reg_Read_Data_2" type="array">
-      <obj_property name="ElementShortName">EXMEM_Reg_Read_Data_2[63:0]</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_Reg_Read_Data_2[63:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/IDEX_Rd" type="array">
+      <obj_property name="ElementShortName">IDEX_Rd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">IDEX_Rd[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/EXMEM_MemWrite" type="logic">
-      <obj_property name="ElementShortName">EXMEM_MemWrite</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_MemWrite</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/IDEX_Rn" type="array">
+      <obj_property name="ElementShortName">IDEX_Rn[3:0]</obj_property>
+      <obj_property name="ObjectShortName">IDEX_Rn[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/EXMEM_MemRead" type="logic">
-      <obj_property name="ElementShortName">EXMEM_MemRead</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_MemRead</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/IDEX_Rm" type="array">
+      <obj_property name="ElementShortName">IDEX_Rm[3:0]</obj_property>
+      <obj_property name="ObjectShortName">IDEX_Rm[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/MEMWB_Read_Data" type="array">
-      <obj_property name="ElementShortName">MEMWB_Read_Data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_Read_Data[31:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/EXMEM_Rd" type="array">
+      <obj_property name="ElementShortName">EXMEM_Rd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">EXMEM_Rd[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/MEMWB_ALU_Result" type="array">
-      <obj_property name="ElementShortName">MEMWB_ALU_Result[63:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_ALU_Result[63:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/EXMEM_Rn" type="array">
+      <obj_property name="ElementShortName">EXMEM_Rn[3:0]</obj_property>
+      <obj_property name="ObjectShortName">EXMEM_Rn[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/MEMWB_MemtoReg" type="logic">
-      <obj_property name="ElementShortName">MEMWB_MemtoReg</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_MemtoReg</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/EXMEM_Rm" type="array">
+      <obj_property name="ElementShortName">EXMEM_Rm[3:0]</obj_property>
+      <obj_property name="ObjectShortName">EXMEM_Rm[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/MEMWB_Write_Reg" type="array">
-      <obj_property name="ElementShortName">MEMWB_Write_Reg[4:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_Write_Reg[4:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/MEMWB_Rd" type="array">
+      <obj_property name="ElementShortName">MEMWB_Rd[3:0]</obj_property>
+      <obj_property name="ObjectShortName">MEMWB_Rd[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/MEMWB_RegWrite" type="logic">
-      <obj_property name="ElementShortName">MEMWB_RegWrite</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_RegWrite</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/MEMWB_Rn" type="array">
+      <obj_property name="ElementShortName">MEMWB_Rn[3:0]</obj_property>
+      <obj_property name="ObjectShortName">MEMWB_Rn[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[1]" type="array">
-      <obj_property name="ElementShortName">[1][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[1][63:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/MEMWB_Rm" type="array">
+      <obj_property name="ElementShortName">MEMWB_Rm[3:0]</obj_property>
+      <obj_property name="ObjectShortName">MEMWB_Rm[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/MEMORY[0]" type="array">
-      <obj_property name="ElementShortName">[0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/forward_a" type="array">
+      <obj_property name="ElementShortName">forward_a[1:0]</obj_property>
+      <obj_property name="ObjectShortName">forward_a[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[5]" type="array">
-      <obj_property name="ElementShortName">[5][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[8]" type="array">
-      <obj_property name="ElementShortName">[8][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[8][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[7]" type="array">
-      <obj_property name="ElementShortName">[7][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[6]" type="array">
-      <obj_property name="ElementShortName">[6][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[6][63:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/forward_b" type="array">
+      <obj_property name="ElementShortName">forward_b[1:0]</obj_property>
+      <obj_property name="ObjectShortName">forward_b[1:0]</obj_property>
    </wvobject>
 </wave_config>
