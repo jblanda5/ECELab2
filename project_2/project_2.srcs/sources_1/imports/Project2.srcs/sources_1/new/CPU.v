@@ -122,10 +122,16 @@ ALU_Ctrl ALU_Ctrl(
 .ALU_OP(IDEX_ALU_Op),
 .ALU_Control(ALU_Control)
 );
-//Hazard detection module
+//hazard detection module
+wire mux_select;
+hazard_detection HazardDetection(
+.PCSrc(mux_select),
+.mux_select(mux_select)
+);
+//Forwarding Unit module
 wire [1:0]forward_a;
 wire [1:0]forward_b;
-hazard_detection HazardDetection(
+forwarding_unit ForwardingUnit(
 .IDEX_Rd(IDEX_Rd),
 .IDEX_Rn(IDEX_Rn),
 .IDEX_Rm(IDEX_Rm),
@@ -238,13 +244,13 @@ always @(posedge clk) begin
     IDEX_ALU_Opcode <= IFID_Instruction[31:21]; //Extract ALU Opcode from Instruction
     IDEX_Write_Reg <= IFID_Instruction[4:0]; //Extract Register Write from Instruction
     IDEX_Instruction_Addr <= IFID_Instruction_Addr; //Pipeline Instruction Address
-    IDEX_ALU_Op <= ALUOp;
-    IDEX_ALUSrc <= ALUSrc;
-    IDEX_Branch <= Branch;
-    IDEX_MemRead <= MemRead;
-    IDEX_MemWrite <= MemWrite;
-    IDEX_RegWrite <= RegWrite;
-    IDEX_MemtoReg <= MemtoReg;
+    IDEX_ALU_Op <= mux_select ? 1'b0 : ALUOp; //Flush with 0's if we branched, invalidating this instruction
+    IDEX_ALUSrc <= mux_select ? 1'b0 : ALUSrc;
+    IDEX_Branch <= mux_select ? 1'b0 : Branch;
+    IDEX_MemRead <= mux_select ? 1'b0 : MemRead;
+    IDEX_MemWrite <= mux_select ? 1'b0 : MemWrite;
+    IDEX_RegWrite <= mux_select ? 1'b0 : RegWrite;
+    IDEX_MemtoReg <= mux_select ? 1'b0 : MemtoReg;
     IDEX_Reg_Read_Data_1 <= read_data_1;
     IDEX_Reg_Read_Data_2 <= read_data_2;
     IDEX_Rd <= IFID_Instruction[4:0];
@@ -253,11 +259,11 @@ always @(posedge clk) begin
     
     //Instruction Execute Portion
     EXMEM_Add_Result <= IDEX_Instruction_Addr + (IDEX_Instruction_Sign_Ex << 2);
-    EXMEM_Branch <= IDEX_Branch;
+    EXMEM_Branch <= mux_select ? 1'b0 : IDEX_Branch; //If we're branching, avoid a control hazard
     EXMEM_MemRead <= IDEX_MemRead;
-    EXMEM_MemWrite <= IDEX_MemWrite;
-    EXMEM_RegWrite <= IDEX_RegWrite;
-    EXMEM_MemtoReg <= IDEX_MemtoReg;
+    EXMEM_MemWrite <= mux_select ? 1'b0 : IDEX_MemWrite;//If we're branching, avoid a control hazard
+    EXMEM_RegWrite <= mux_select ? 1'b0 : IDEX_RegWrite;//If we're branching, avoid a control hazard
+    EXMEM_MemtoReg <= mux_select ? 1'b0 : IDEX_MemtoReg;//If we're branching, avoid a control hazard
     EXMEM_Reg_Read_Data_2 <= IDEX_Reg_Read_Data_2;
     EXMEM_Write_Reg <= IDEX_Write_Reg;
     EXMEM_Rd <= IDEX_Rd;
