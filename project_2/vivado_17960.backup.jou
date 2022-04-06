@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Apr  5 12:34:11 2022
+# Process ID: 17960
+# Current directory: C:/Users/jblan/Documents/GitHub/ECELab2/project_2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9708 C:\Users\jblan\Documents\GitHub\ECELab2\project_2\project_2.xpr
+# Log file: C:/Users/jblan/Documents/GitHub/ECELab2/project_2/vivado.log
+# Journal file: C:/Users/jblan/Documents/GitHub/ECELab2/project_2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/jblan/Documents/GitHub/ECELab2/project_2/project_2.xpr
+update_compile_order -fileset sources_1
+close [ open C:/Users/jblan/Documents/GitHub/ECELab2/project_2/project_2.srcs/sources_1/new/forwarding_unit.v w ]
+add_files C:/Users/jblan/Documents/GitHub/ECELab2/project_2/project_2.srcs/sources_1/new/forwarding_unit.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1

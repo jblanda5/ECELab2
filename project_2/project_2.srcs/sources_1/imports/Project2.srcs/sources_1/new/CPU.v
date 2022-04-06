@@ -43,6 +43,7 @@ reg [31:0]IFID_Instruction_Addr;
 reg [10:0]IDEX_ALU_Opcode;
 reg [4:0]IDEX_Write_Reg;
 reg [31:0]IDEX_Instruction_Addr;
+reg [31:0]IDEX_Instruction;
 reg [63:0]IDEX_Instruction_Sign_Ex;
 reg [63:0]IDEX_Reg_Read_Data_1;
 reg [63:0]IDEX_Reg_Read_Data_2;
@@ -70,6 +71,7 @@ reg EXMEM_MemWrite;
 reg EXMEM_RegWrite;
 reg EXMEM_MemtoReg;
 wire PCSrc;
+wire zero;
 assign mem_addr = ALU_Result;
 assign write_data = EXMEM_Reg_Read_Data_2;
 assign mem_read = EXMEM_MemRead;
@@ -105,6 +107,7 @@ wire MemRead;
 wire MemWrite;
 wire RegWrite;
 wire MemtoReg;
+wire Branch;
 control control(
 .Opcode(IFID_Instruction[31:21]),
 .ALUOp(ALUOp),
@@ -125,8 +128,9 @@ ALU_Ctrl ALU_Ctrl(
 //hazard detection module
 wire mux_select;
 hazard_detection HazardDetection(
-.PCSrc(mux_select),
-.mux_select(mux_select)
+.PCSrc(PCSrc),
+.mux_select(mux_select),
+.clk(clk)
 );
 //Forwarding Unit module
 wire [1:0]forward_a;
@@ -142,7 +146,9 @@ forwarding_unit ForwardingUnit(
 .MEMWB_Rn(MEMWB_Rn),
 .MEMWB_Rm(MEMWB_Rm),
 .forward_a(forward_a),
-.forward_b(forward_b)
+.forward_b(forward_b),
+.EXMEM_reg_write(EXMEM_RegWrite),
+.MEMWB_reg_write(MEMWB_RegWrite)
 );
 //ALU MUX
 wire [63:0]ALU_In_1;
@@ -150,7 +156,6 @@ assign ALU_In_1 = forward_a[1] ? MEMWB_ALU_Result : (forward_a[0] ? ALU_Result :
 wire [63:0]ALU_In_2_inter; //intermediate wire
 wire [63:0]ALU_In_2;
 wire [63:0]ALU_Result;
-wire zero;
 wire [63:0]read_data_2;
 assign ALU_In_2_inter = forward_b[1] ? MEMWB_ALU_Result : (forward_b[0] ? ALU_Result : IDEX_Reg_Read_Data_2);
 assign ALU_In_2 = IDEX_ALUSrc ? IDEX_Instruction_Sign_Ex : ALU_In_2_inter;
@@ -192,13 +197,14 @@ always @(posedge reset) begin
     PC <= 0;
     
     //Instruction Fetch/Decode Stage Registers
-    IFID_Instruction <= instr_data;
+    IFID_Instruction <= 0;
     IFID_Instruction_Addr <= 0;
 
     //Instruction Decode/Execute Stage Registers
     IDEX_ALU_Opcode <=0;
     IDEX_Instruction_Addr <= 0;
     IDEX_Instruction_Sign_Ex <= 0;
+    IDEX_Instruction <= 0;
     IDEX_ALU_Op <= 0;
     IDEX_ALUSrc <= 0;
     IDEX_Branch <= 0;
@@ -240,6 +246,7 @@ always @(posedge clk) begin
     IFID_Instruction_Addr <= PC;
     
     //Instruction Decode Portion
+    IDEX_Instruction <= IFID_Instruction;
     IDEX_Instruction_Sign_Ex <= Instruction_Sign_Ex; //Set IDEX Instruction Sign Extended register
     IDEX_ALU_Opcode <= IFID_Instruction[31:21]; //Extract ALU Opcode from Instruction
     IDEX_Write_Reg <= IFID_Instruction[4:0]; //Extract Register Write from Instruction
@@ -271,10 +278,10 @@ always @(posedge clk) begin
     EXMEM_Rm <= IDEX_Rm;
     
     //Memory Access Portion
-    MEMWB_Read_Data <= read_data;
-    MEMWB_RegWrite <= EXMEM_RegWrite;
-    MEMWB_MemtoReg <= EXMEM_MemtoReg;
-    MEMWB_Write_Reg <= EXMEM_Write_Reg;
+    MEMWB_Read_Data <= mux_select ? 1'b0 : read_data;
+    MEMWB_RegWrite <= mux_select ? 1'b0 : EXMEM_RegWrite;
+    MEMWB_MemtoReg <= mux_select ? 1'b0 : EXMEM_MemtoReg;
+    MEMWB_Write_Reg <= mux_select ? 1'b0 : EXMEM_Write_Reg;
     MEMWB_ALU_Result <= ALU_Result;
     MEMWB_Rd <= EXMEM_Rd;
     MEMWB_Rn <= EXMEM_Rn;

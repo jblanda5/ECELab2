@@ -22,7 +22,24 @@
 
 module hazard_detection(
 input wire PCSrc,
-output wire mux_select
+output reg mux_select,
+input wire clk
 );
-assign mux_select = PCSrc;
+reg state;
+always @(posedge clk) begin
+    case (state)
+        1'b0: begin
+            if (PCSrc == 1) begin
+                mux_select <= 1;
+            end
+            else begin
+                mux_select <= 0;
+            end
+        end
+        default: begin
+            mux_select <= 0;
+            state <= 0;
+        end
+    endcase
+end
 endmodule

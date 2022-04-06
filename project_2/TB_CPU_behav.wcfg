@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="15.001 ns"></ZoomEndTime>
-      <Cursor1Time time="5.014 ns"></Cursor1Time>
+      <ZoomStartTime time="8.368 ns"></ZoomStartTime>
+      <ZoomEndTime time="17.309 ns"></ZoomEndTime>
+      <Cursor1Time time="8.818 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="275"></NameColumnWidth>
-      <ValueColumnWidth column_width="129"></ValueColumnWidth>
+      <NameColumnWidth column_width="178"></NameColumnWidth>
+      <ValueColumnWidth column_width="65"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="8" />
    <wvobject fp_name="/TB_CPU/TBCPU/IFID_Instruction" type="array">
       <obj_property name="ElementShortName">IFID_Instruction[31:0]</obj_property>
       <obj_property name="ObjectShortName">IFID_Instruction[31:0]</obj_property>
@@ -36,48 +36,20 @@
       <obj_property name="ElementShortName">ALUresult[63:0]</obj_property>
       <obj_property name="ObjectShortName">ALUresult[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/IDEX_Rd" type="array">
-      <obj_property name="ElementShortName">IDEX_Rd[3:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_Rd[3:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/IDEX_Rn" type="array">
-      <obj_property name="ElementShortName">IDEX_Rn[3:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_Rn[3:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[5]" type="array">
+      <obj_property name="ElementShortName">[5][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/IDEX_Rm" type="array">
-      <obj_property name="ElementShortName">IDEX_Rm[3:0]</obj_property>
-      <obj_property name="ObjectShortName">IDEX_Rm[3:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[0]" type="array">
+      <obj_property name="ElementShortName">[0][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/EXMEM_Rd" type="array">
-      <obj_property name="ElementShortName">EXMEM_Rd[3:0]</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_Rd[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/EXMEM_Rn" type="array">
-      <obj_property name="ElementShortName">EXMEM_Rn[3:0]</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_Rn[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/EXMEM_Rm" type="array">
-      <obj_property name="ElementShortName">EXMEM_Rm[3:0]</obj_property>
-      <obj_property name="ObjectShortName">EXMEM_Rm[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/MEMWB_Rd" type="array">
-      <obj_property name="ElementShortName">MEMWB_Rd[3:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_Rd[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/MEMWB_Rn" type="array">
-      <obj_property name="ElementShortName">MEMWB_Rn[3:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_Rn[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/MEMWB_Rm" type="array">
-      <obj_property name="ElementShortName">MEMWB_Rm[3:0]</obj_property>
-      <obj_property name="ObjectShortName">MEMWB_Rm[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/forward_a" type="array">
-      <obj_property name="ElementShortName">forward_a[1:0]</obj_property>
-      <obj_property name="ObjectShortName">forward_a[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_CPU/TBCPU/HazardDetection/forward_b" type="array">
-      <obj_property name="ElementShortName">forward_b[1:0]</obj_property>
-      <obj_property name="ObjectShortName">forward_b[1:0]</obj_property>
+   <wvobject fp_name="/TB_CPU/TBCPU/Registers/registers[2]" type="array">
+      <obj_property name="ElementShortName">[2][63:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][63:0]</obj_property>
    </wvobject>
 </wave_config>
