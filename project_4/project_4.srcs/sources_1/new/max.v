@@ -21,32 +21,32 @@
 
 
 module max(
-input wire [15:0]a,
-input wire [15:0]b,
-input wire [15:0]c,
-input wire [15:0]d,
-input wire [15:0]e,
-input wire [15:0]f,
-input wire [15:0]g,
-input wire [15:0]h,
-input wire [15:0]i,
-input wire [15:0]j,
-input wire [15:0]k,
-input wire [15:0]l,
-input wire [15:0]m,
-input wire [15:0]n,
-input wire [15:0]o,
-input wire [15:0]p,
-output wire [15:0]max_value
+input wire [63:0]a,
+input wire [63:0]b,
+input wire [63:0]c,
+input wire [63:0]d,
+input wire [63:0]e,
+input wire [63:0]f,
+input wire [63:0]g,
+input wire [63:0]h,
+input wire [63:0]i,
+input wire [63:0]j,
+input wire [63:0]k,
+input wire [63:0]l,
+input wire [63:0]m,
+input wire [63:0]n,
+input wire [63:0]o,
+input wire [63:0]p,
+output wire [63:0]max_value
     );
-wire [15:0] ab;
-wire [15:0] cd;
-wire [15:0] ef;
-wire [15:0] gh;
-wire [15:0] ij;
-wire [15:0] kl;
-wire [15:0] mn;
-wire [15:0] op;
+wire [63:0] ab;
+wire [63:0] cd;
+wire [63:0] ef;
+wire [63:0] gh;
+wire [63:0] ij;
+wire [63:0] kl;
+wire [63:0] mn;
+wire [63:0] op;
 
 assign ab = (a>=b) ? a : b;
 assign cd = (c>=d) ? c : d;
@@ -57,18 +57,18 @@ assign kl = (k>=l) ? k : l;
 assign mn = (m>=n) ? m : n;
 assign op = (o>=p) ? o : p;
 
-wire [15:0] abcd;
-wire [15:0] efgh;
-wire [15:0] ijkl;
-wire [15:0] mnop;
+wire [63:0] abcd;
+wire [63:0] efgh;
+wire [63:0] ijkl;
+wire [63:0] mnop;
 
 assign abcd = (ab>=cd) ? ab : cd;
 assign efgh = (ef>=gh) ? ef : gh;
 assign ijkl = (ij>= kl) ? ij : kl;
 assign mnop = (mn >= op) ? mn : op;
 
-wire [15:0] abcdefgh;
-wire [15:0] ijklmnop;
+wire [63:0] abcdefgh;
+wire [63:0] ijklmnop;
 
 assign abcdefgh = (abcd >= efgh) ? abcd : efgh;
 assign ijklmnop = (ijkl >= mnop) ? ijkl : mnop;
