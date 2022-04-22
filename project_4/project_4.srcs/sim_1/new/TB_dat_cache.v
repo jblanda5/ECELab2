@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 04/15/2022 02:52:47 PM
+// Create Date: 04/22/2022 01:11:21 PM
 // Design Name: 
-// Module Name: TB_cache
+// Module Name: TB_dat_cache
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module TB_cache;
+module TB_dat_cache();
+
 wire [31:0]address;
 reg mem_read;
 wire done;
@@ -48,31 +49,8 @@ end
 initial begin
 i <= 0;
 mem_read <= 1;
-ADDRESSES[0] <= 'h00000001;
-ADDRESSES[1] <= 'h0000000F;
-ADDRESSES[2] <= 'h000000A1;
-ADDRESSES[3] <= 'h00000BF1;
-ADDRESSES[4] <= 'h00000001;
-ADDRESSES[5] <= 'h0FFFFFFF;
-ADDRESSES[6] <= 'h000000F1;
-ADDRESSES[7] <= 'h00000F01;
-ADDRESSES[8] <= 'h0000F001;
-ADDRESSES[9] <= 'h000F0001;
-ADDRESSES[10] <= 'h0F000001;
-ADDRESSES[11] <= 'h0FF00001;
-ADDRESSES[12] <= 'h0A000001;
-ADDRESSES[13] <= 'h000A0001;
-ADDRESSES[14] <= 'h0000A001;
-ADDRESSES[15] <= 'h00000A01;
-ADDRESSES[16] <= 'h000000A1;
-ADDRESSES[17] <= 'h00000001;
-ADDRESSES[18] <= 'h0000000F;
-ADDRESSES[19] <= 'h000000A1;
-ADDRESSES[20] <= 'h00A00BF1;
-ADDRESSES[21] <= 'h00B000A1;
-ADDRESSES[22] <= 'h00C00BF1;
-ADDRESSES[23] <= 'h00D000A1;
-ADDRESSES[24] <= 'h00E00BF1;
+//Load memory register from dat file
+
 #5;
     while (1) begin
     #2;
@@ -84,6 +62,6 @@ ADDRESSES[24] <= 'h00E00BF1;
             mem_read <= 0;
         end
     end
-end
-
+ end
+ 
 endmodule

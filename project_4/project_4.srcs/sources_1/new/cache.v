@@ -113,8 +113,8 @@ always @(posedge (clk)) begin
         read: begin
             case(address)
             
-                (cache[(address[31:28]<<4)][60:33]): begin
-                    if (cache[(address[31:28] <<4)][32]) begin //Check valid bit
+                (cache[(address[31:28]<<4)][60:32]): begin
+                    if (cache[(address[31:28] <<4)][31]) begin //Check valid bit
                     lru[address[31:28]<<4] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -125,8 +125,8 @@ always @(posedge (clk)) begin
                     end
                 end
             
-                (cache[(address[31:28]<<4)+1][60:33]): begin
-                    if (cache[(address[31:28] <<4)+1][32]) begin
+                (cache[(address[31:28]<<4)+1][60:32]): begin
+                    if (cache[(address[31:28] <<4)+1][31]) begin
                     lru[(address[31:28]<<4)+1] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -137,8 +137,8 @@ always @(posedge (clk)) begin
                     end
                 end
             
-                (cache[(address[31:28]<<4)+2][60:33]): begin
-                    if (cache[(address[31:28] <<4)+2][32]) begin
+                (cache[(address[31:28]<<4)+2][60:32]): begin
+                    if (cache[(address[31:28] <<4)+2][31]) begin
                     lru[(address[31:28]<<4)+2] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -149,8 +149,8 @@ always @(posedge (clk)) begin
                     end
                 end
             
-                (cache[(address[31:28]<<4)+3][60:33]): begin
-                    if (cache[(address[31:28] <<4)+3][32]) begin
+                (cache[(address[31:28]<<4)+3][60:32]): begin
+                    if (cache[(address[31:28] <<4)+3][31]) begin
                     lru[(address[31:28]<<4)+3] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -161,8 +161,8 @@ always @(posedge (clk)) begin
                     end
                 end
             
-                (cache[(address[31:28]<<4)+4][60:33]): begin
-                    if (cache[(address[31:28] <<4)+4][32]) begin
+                (cache[(address[31:28]<<4)+4][60:32]): begin
+                    if (cache[(address[31:28] <<4)+4][31]) begin
                     lru[(address[31:28]<<4)+4] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -173,8 +173,8 @@ always @(posedge (clk)) begin
                     end
                 end
             
-                (cache[(address[31:28]<<4)+5][60:33]): begin
-                    if (cache[(address[31:28] <<4)+5][32]) begin
+                (cache[(address[31:28]<<4)+5][60:32]): begin
+                    if (cache[(address[31:28] <<4)+5][31]) begin
                     lru[(address[31:28]<<4)+5] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -185,8 +185,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+6][60:33]): begin
-                    if (cache[(address[31:28] <<4)+6][32]) begin
+                (cache[(address[31:28]<<4)+6][60:32]): begin
+                    if (cache[(address[31:28] <<4)+6][31]) begin
                     lru[(address[31:28]<<4)+6] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -197,8 +197,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+7][60:33]): begin
-                    if (cache[(address[31:28] <<4)+7][32]) begin
+                (cache[(address[31:28]<<4)+7][60:32]): begin
+                    if (cache[(address[31:28] <<4)+7][31]) begin
                     lru[(address[31:28]<<4)+7] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -209,8 +209,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+8][60:33]): begin
-                    if (cache[(address[31:28] <<4)+8][32]) begin
+                (cache[(address[31:28]<<4)+8][60:32]): begin
+                    if (cache[(address[31:28] <<4)+8][31]) begin
                     lru[(address[31:28]<<4)+8] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -221,8 +221,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+9][60:33]): begin
-                    if (cache[(address[31:28] <<4)+9][32]) begin
+                (cache[(address[31:28]<<4)+9][60:32]): begin
+                    if (cache[(address[31:28] <<4)+9][31]) begin
                     lru[(address[31:28]<<4)+9] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -233,8 +233,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+10][60:33]): begin
-                    if (cache[(address[31:28] <<4)+10][32]) begin
+                (cache[(address[31:28]<<4)+10][60:32]): begin
+                    if (cache[(address[31:28] <<4)+10][31]) begin
                     lru[(address[31:28]<<4)+10] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -245,8 +245,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+11][60:33]): begin
-                    if (cache[(address[31:28] <<4)+11][32]) begin
+                (cache[(address[31:28]<<4)+11][60:32]): begin
+                    if (cache[(address[31:28] <<4)+11][31]) begin
                     lru[(address[31:28]<<4)+11] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -257,8 +257,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+12][60:33]): begin
-                    if (cache[(address[31:28] <<4)+12][32]) begin
+                (cache[(address[31:28]<<4)+12][60:32]): begin
+                    if (cache[(address[31:28] <<4)+12][31]) begin
                     lru[(address[31:28]<<4)+12] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -269,8 +269,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+13][60:33]): begin
-                    if (cache[(address[31:28] <<4)+13][32]) begin
+                (cache[(address[31:28]<<4)+13][60:32]): begin
+                    if (cache[(address[31:28] <<4)+13][31]) begin
                     lru[(address[31:28]<<4)+13] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -281,8 +281,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+14][60:33]): begin
-                    if (cache[(address[31:28] <<4)+14][32]) begin
+                (cache[(address[31:28]<<4)+14][60:32]): begin
+                    if (cache[(address[31:28] <<4)+14][31]) begin
                     lru[(address[31:28]<<4)+14] <= 0;
                     hit_counter <= hit_counter + 1;
                     done <= 1;
@@ -293,8 +293,8 @@ always @(posedge (clk)) begin
                     end
                 end
                 
-                (cache[(address[31:28]<<4)+15][60:33]): begin
-                    if (cache[(address[31:28] <<4)+15][32]) begin
+                (cache[(address[31:28]<<4)+15][60:32]): begin
+                    if (cache[(address[31:28] <<4)+15][31]) begin
                         lru[(address[31:28]<<4)+15] <= 0;
                         hit_counter <= hit_counter + 1;
                         done <= 1;
