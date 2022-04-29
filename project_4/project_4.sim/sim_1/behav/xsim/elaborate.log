@@ -1,15 +1,9 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto 1bc3a0749dd94fab9451681b93e81a0e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_cache_behav xil_defaultlib.TB_cache xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto 1bc3a0749dd94fab9451681b93e81a0e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot TB_dat_cache_behav xil_defaultlib.TB_dat_cache xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 24 for port 'address' [C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_dat_cache.v:32]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.max
-Compiling module xil_defaultlib.cache
-Compiling module xil_defaultlib.TB_cache
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot TB_cache_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

@@ -3,309 +3,33 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="TB_cache_behav.wdb" id="1">
+      <db_ref path="TB_dat_cache_behav.wdb" id="1">
          <top_modules>
-            <top_module name="TB_cache" />
+            <top_module name="TB_dat_cache" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="130.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="222.911 ns"></ZoomEndTime>
-      <Cursor1Time time="191.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="118.068 ns"></ZoomEndTime>
+      <Cursor1Time time="423,829.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="218"></NameColumnWidth>
-      <ValueColumnWidth column_width="110"></ValueColumnWidth>
+      <ValueColumnWidth column_width="106"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="72" />
-   <wvobject fp_name="/TB_cache/address" type="array">
+   <WVObjectSize size="3" />
+   <wvobject fp_name="/TB_dat_cache/cache/address" type="array">
       <obj_property name="ElementShortName">address[23:0]</obj_property>
       <obj_property name="ObjectShortName">address[23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_cache/cache/INDEX" type="array">
-      <obj_property name="ElementShortName">INDEX[3:0]</obj_property>
-      <obj_property name="ObjectShortName">INDEX[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/mem_read" type="logic">
-      <obj_property name="ElementShortName">mem_read</obj_property>
-      <obj_property name="ObjectShortName">mem_read</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/done" type="logic">
-      <obj_property name="ElementShortName">done</obj_property>
-      <obj_property name="ObjectShortName">done</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[15]" type="array">
-      <obj_property name="ElementShortName">[15][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[15][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[14]" type="array">
-      <obj_property name="ElementShortName">[14][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[14][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[13]" type="array">
-      <obj_property name="ElementShortName">[13][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[13][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[12]" type="array">
-      <obj_property name="ElementShortName">[12][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[12][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[11]" type="array">
-      <obj_property name="ElementShortName">[11][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[11][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[10]" type="array">
-      <obj_property name="ElementShortName">[10][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[10][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[9]" type="array">
-      <obj_property name="ElementShortName">[9][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[9][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[8]" type="array">
-      <obj_property name="ElementShortName">[8][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[8][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[7]" type="array">
-      <obj_property name="ElementShortName">[7][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[6]" type="array">
-      <obj_property name="ElementShortName">[6][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[6][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[5]" type="array">
-      <obj_property name="ElementShortName">[5][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[4]" type="array">
-      <obj_property name="ElementShortName">[4][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[3]" type="array">
-      <obj_property name="ElementShortName">[3][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[3][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[2]" type="array">
-      <obj_property name="ElementShortName">[2][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[2][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[1]" type="array">
-      <obj_property name="ElementShortName">[1][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[1][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[0]" type="array">
-      <obj_property name="ElementShortName">[0][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/max_value" type="array">
-      <obj_property name="ElementShortName">max_value[63:0]</obj_property>
-      <obj_property name="ObjectShortName">max_value[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/hit_counter" type="array">
-      <obj_property name="ElementShortName">hit_counter[31:0]</obj_property>
-      <obj_property name="ObjectShortName">hit_counter[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/miss_counter" type="array">
+   <wvobject fp_name="/TB_dat_cache/cache/miss_counter" type="array">
       <obj_property name="ElementShortName">miss_counter[31:0]</obj_property>
       <obj_property name="ObjectShortName">miss_counter[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[15]" type="array">
-      <obj_property name="ElementShortName">[15][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[15][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[14]" type="array">
-      <obj_property name="ElementShortName">[14][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[14][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[13]" type="array">
-      <obj_property name="ElementShortName">[13][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[13][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[12]" type="array">
-      <obj_property name="ElementShortName">[12][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[12][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[11]" type="array">
-      <obj_property name="ElementShortName">[11][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[11][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[10]" type="array">
-      <obj_property name="ElementShortName">[10][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[10][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[9]" type="array">
-      <obj_property name="ElementShortName">[9][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[9][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[8]" type="array">
-      <obj_property name="ElementShortName">[8][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[8][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[7]" type="array">
-      <obj_property name="ElementShortName">[7][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[6]" type="array">
-      <obj_property name="ElementShortName">[6][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[6][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[5]" type="array">
-      <obj_property name="ElementShortName">[5][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[4]" type="array">
-      <obj_property name="ElementShortName">[4][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[3]" type="array">
-      <obj_property name="ElementShortName">[3][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[3][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[2]" type="array">
-      <obj_property name="ElementShortName">[2][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[2][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[1]" type="array">
-      <obj_property name="ElementShortName">[1][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[1][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[0]" type="array">
-      <obj_property name="ElementShortName">[0][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/state" type="array">
-      <obj_property name="ElementShortName">state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">state[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[255]" type="array">
-      <obj_property name="ElementShortName">[255][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[255][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[254]" type="array">
-      <obj_property name="ElementShortName">[254][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[254][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[253]" type="array">
-      <obj_property name="ElementShortName">[253][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[253][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[252]" type="array">
-      <obj_property name="ElementShortName">[252][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[252][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[251]" type="array">
-      <obj_property name="ElementShortName">[251][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[251][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[250]" type="array">
-      <obj_property name="ElementShortName">[250][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[250][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[249]" type="array">
-      <obj_property name="ElementShortName">[249][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[249][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[248]" type="array">
-      <obj_property name="ElementShortName">[248][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[248][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[247]" type="array">
-      <obj_property name="ElementShortName">[247][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[247][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[246]" type="array">
-      <obj_property name="ElementShortName">[246][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[246][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[245]" type="array">
-      <obj_property name="ElementShortName">[245][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[245][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[244]" type="array">
-      <obj_property name="ElementShortName">[244][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[244][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[243]" type="array">
-      <obj_property name="ElementShortName">[243][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[243][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[242]" type="array">
-      <obj_property name="ElementShortName">[242][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[242][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/cache[241]" type="array">
-      <obj_property name="ElementShortName">[241][52:0]</obj_property>
-      <obj_property name="ObjectShortName">[241][52:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[255]" type="array">
-      <obj_property name="ElementShortName">[255][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[255][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[254]" type="array">
-      <obj_property name="ElementShortName">[254][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[254][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[253]" type="array">
-      <obj_property name="ElementShortName">[253][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[253][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[252]" type="array">
-      <obj_property name="ElementShortName">[252][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[252][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[251]" type="array">
-      <obj_property name="ElementShortName">[251][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[251][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[250]" type="array">
-      <obj_property name="ElementShortName">[250][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[250][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[249]" type="array">
-      <obj_property name="ElementShortName">[249][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[249][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[248]" type="array">
-      <obj_property name="ElementShortName">[248][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[248][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[247]" type="array">
-      <obj_property name="ElementShortName">[247][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[247][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[246]" type="array">
-      <obj_property name="ElementShortName">[246][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[246][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[245]" type="array">
-      <obj_property name="ElementShortName">[245][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[245][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[244]" type="array">
-      <obj_property name="ElementShortName">[244][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[244][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[243]" type="array">
-      <obj_property name="ElementShortName">[243][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[243][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[242]" type="array">
-      <obj_property name="ElementShortName">[242][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[242][63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TB_cache/cache/lru[241]" type="array">
-      <obj_property name="ElementShortName">[241][63:0]</obj_property>
-      <obj_property name="ObjectShortName">[241][63:0]</obj_property>
+   <wvobject fp_name="/TB_dat_cache/cache/hit_counter" type="array">
+      <obj_property name="ElementShortName">hit_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hit_counter[31:0]</obj_property>
    </wvobject>
 </wave_config>

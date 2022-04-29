@@ -3,8 +3,8 @@
 Jun 10 2021
 20:04:57
 C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
-C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_cache.v,1650650700,verilog,,C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_dat_cache.v,,TB_cache,,,,,,,,
-,,,,,,TB_dat_cache,,,,,,,,
+C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_cache.v,1650650717,verilog,,C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_dat_cache.v,,TB_cache,,,,,,,,
+C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_dat_cache.v,1651261506,verilog,,,,TB_dat_cache,,,,,,,,
 C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sources_1/new/cache.v,1650654357,verilog,,C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sources_1/new/min.v,,cache,,,,,,,,
 C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sources_1/new/max.v,1650648989,verilog,,C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sources_1/new/cache.v,,max,,,,,,,,
 C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sources_1/new/min.v,1650048290,verilog,,C:/Users/jblan/Documents/GitHub/ECELab2/project_4/project_4.srcs/sim_1/new/TB_cache.v,,,,,,,,,,
